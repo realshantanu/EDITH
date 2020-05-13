@@ -12,6 +12,6 @@ news_list=soup_page.findAll("item")
 # Print news title, url and publish date
 for news in news_list:
   print(news.title.text)
-  print(news.link.text)
+  #print(news.link.text) #if you want link to display remove # from the code behind.
   print(news.pubDate.text)
   print("-"*60)
