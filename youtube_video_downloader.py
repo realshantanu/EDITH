@@ -1,6 +1,19 @@
 from pytube import YouTube
 
 
-video_url = input("Enter Link Of Youtube Video:  ")
+  
+link = input("Enter the link of YouTube video you want to download:  ")
+yt = YouTube(link)
 
-yt = YouTube(video_url).streams.first().download("C:\\Users\\Shantanu\\Downloads\\youtube")
+#Showing details
+print("Title: ",yt.title)
+print("Number of views: ",yt.views)
+print("Length of video: ",yt.length)
+print("Rating of video: ",yt.rating)
+#Getting the highest resolution possible
+ys = yt.streams.get_highest_resolution()
+
+#Starting download
+print("Downloading...")
+ys.download("C:\\Users\\Shantanu\\Downloads\\youtube")
+print("Download completed!!")
