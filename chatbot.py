@@ -6,7 +6,7 @@ pairs = [
     ],
      [
         r"what is your name ?",
-        ["My name is EDITH and I'm a chatbot ?",]
+        ["My name is WEDNESDAY and I'm a chatbot ?",]
     ],
     [
         r"how are you ?",
@@ -36,11 +36,11 @@ pairs = [
     ],
     [
         r"(.*) created ?",
-        ["Nagesh created me using Python's NLTK library ","top secret ;)",]
+        ["Shantanu created me using Python's NLTK library ","top secret ;)",]
     ],
     [
         r"(.*) (location|city) ?",
-        ['Chennai, Tamil Nadu',]
+        ['Pune, Maharashtra',]
     ],
     [
         r"how is weather in (.*)?",
@@ -76,12 +76,12 @@ pairs = [
 ],
 
     [
-     r"great",
+     r"great","nice","fine",
      ["Nice!"]
      ]
 ]
 def chatty():
-        print("Hi, I'm EDITH and I chat alot ;)\nPlease type lowercase English language to start a conversation. Type quit to leave ") #default message at the start
+        print("Hi, I'm WEDNESDAY and I chat alot ;)\nPlease type lowercase English language to start a conversation. Type quit to leave ") #default message at the start
         chat = Chat(pairs, reflections)
         chat.converse()
 if __name__ == "__main__":
