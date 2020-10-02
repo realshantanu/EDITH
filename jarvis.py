@@ -82,25 +82,45 @@ while True:
     minute = datetime.datetime.now().minute
     
     if 'wikipedia' in query:
-        speak('Searching Wikipedia...')
-        query = query.replace("wikipedia", "")
-        results = wikipedia.summary(query, sentences=2)
-        speak("According to Wikipedia")
-        print(results)
-        speak(results)
+        try:
+            speak('Searching Wikipedia...')
+            query = query.replace("wikipedia", "")
+            results = wikipedia.summary(query, sentences=2)
+            speak("According to Wikipedia")
+            print(results)
+            speak(results)
+        except:
+            print("Connection Error!!")
+            speak("Connection Error!!")
         
         
     elif 'open youtube' in query:
-        webbrowser.open("www.youtube.com")
+        try:
+            webbrowser.open("www.youtube.com")
+        except:
+            print("Connection Error!!")
+            speak("Connection Error!!")
         
     elif 'open whatsapp' in query:
-        webbrowser.open("https:\\web.whatsapp.com")
+        try:
+            webbrowser.open("https:\\web.whatsapp.com")
+        except:
+            print("Connection Error!!")
+            speak("Connection Error!!")
         
     elif 'open insta' in query:
-        webbrowser.open("https:\\www.instagram.com")
+        try:
+            webbrowser.open("https:\\www.instagram.com")
+        except:
+            print("Connection Error!!")
+            speak("Connection Error!!")
     
     elif 'open google' in query:
-        webbrowser.open("www.google.com")
+        try:
+            webbrowser.open("www.google.com")
+        except:
+            print("Connection Error!!")
+            speak("Connection Error!!")
     
     elif 'what is the time' in query:
         t = hour,"hour and",minute,"minutes"
@@ -168,46 +188,63 @@ while True:
         speak(b)
     
     elif 'on google' in query:
-        a=input("Enter what you want to search for:")
-        ur="https://www.google.com/search?q="
-        webbrowser.open_new(ur+a)
+        try:
+            a=input("Enter what you want to search for:")
+            ur="https://www.google.com/search?q="
+            webbrowser.open_new(ur+a)
+            
+        except:
+            print("Connection Error!!")
+            speak("Connection Error!!")
     
     elif 'on youtube' in query:
-        search_keyword= input("Enter Query You Want To Search:   ")
-        html = urllib.request.urlopen("https://www.youtube.com/results?search_query=" + search_keyword)
-        video_ids = re.findall(r"watch\?v=(\S{11})", html.read().decode())
-        webbrowser.open("https://www.youtube.com/watch?v=" + video_ids[0])
-        print("https://www.youtube.com/watch?v=" + video_ids[0])
+        try:
+            search_keyword= input("Enter Query You Want To Search:   ")
+            html = urllib.request.urlopen("https://www.youtube.com/results?search_query=" + search_keyword)
+            video_ids = re.findall(r"watch\?v=(\S{11})", html.read().decode())
+            webbrowser.open("https://www.youtube.com/watch?v=" + video_ids[0])
+            print("https://www.youtube.com/watch?v=" + video_ids[0])
+        except:
+            print("Connection Error!!")
+            speak("Connection Error!!")
     
     
     elif 'send mail' in query:
-        mail_content = input("Enter The Message:  ")
-        sender_address = 'Your_Mail_Adderess'
-        sender_pass = 'Your_Mail_Password'
-        receiver_address = input('Enter receviers mail Eg:receiver567@gmail.com:   ')
-        #Setup the MIME
-        message = MIMEMultipart()
-        message['From'] = sender_address
-        message['To'] = receiver_address
-        message['Subject'] = input("Enter Subject Of Mail:  ")
-        #The body and the attachments for the mail
-        message.attach(MIMEText(mail_content, 'plain'))
-        
-        session = smtplib.SMTP('smtp.gmail.com', 587)
-        session.starttls()
-        session.login(sender_address, sender_pass)
-        text = message.as_string()
-        session.sendmail(sender_address, receiver_address, text)
-        session.quit()
-        print('Mail Sent')
-        speak('Mail Sent')
+        try:
+            mail_content = input("Enter The Message:  ")
+            sender_address = 'shantanurajmane21@gmail.com'
+            sender_pass = '9527226630'
+            receiver_address = input('Enter receviers mail Eg:receiver567@gmail.com:   ')
+            #Setup the MIME
+            message = MIMEMultipart()
+            message['From'] = sender_address
+            message['To'] = receiver_address
+            message['Subject'] = input("Enter Subject Of Mail:  ")
+            #The body and the attachments for the mail
+            message.attach(MIMEText(mail_content, 'plain'))
+            
+            session = smtplib.SMTP('smtp.gmail.com', 587)
+            session.starttls()
+            session.login(sender_address, sender_pass)
+            text = message.as_string()
+            session.sendmail(sender_address, receiver_address, text)
+            session.quit()
+            print('Mail Sent')
+            speak('Mail Sent')
+        except:
+            print("Something Went Wrong!! Mail Not Send.")
+            speak("Something Went Wrong!! Mail Not Send.")
       
         
     elif 'tell me a joke' in query:
-        from random import choice
-        a = choice([geek, icanhazdad, chucknorris, icndb])()
-        print(a)
-        speak(a)
+        try:
+            from random import choice
+            a = choice([geek, icanhazdad, chucknorris, icndb])()
+            print(a)
+            speak(a)
+        except:
+            print("Connection Error!!!")
+            speak("Connection Error!!!")
     
     elif 'set timer' in query:
         second = int(input("How long to wait?(in Seconds):  "))
@@ -217,20 +254,28 @@ while True:
             time.sleep(1)
             
     elif 'weather' in query:
-        api_address='http://api.openweathermap.org/data/2.5/weather?appid=f9586d0b1005dd472de99a9badc41409&q='
-        city = input('City Name :')
-        url = api_address + city
-        json_data = requests.get(url).json()
-        format_add = json_data['main']
-        print(format_add)
+        try:
+            api_address='http://api.openweathermap.org/data/2.5/weather?appid=f9586d0b1005dd472de99a9badc41409&q='
+            city = input('City Name :')
+            url = api_address + city
+            json_data = requests.get(url).json()
+            format_add = json_data['main']
+            print(format_add)
+        except:
+            print("Connection Error!!!")
+            speak("Connection Error!!!")
     
     elif 'translate' in query:
-        Text = input("Text To Translate:  ")
-        To_Lang = str(input("Enter Name of Language:  "))
-        translator= Translator(to_lang=To_Lang)
-        translation = translator.translate(Text)
-        print(translation)
-        speak(translation)
+        try:
+            Text = input("Text To Translate:  ")
+            To_Lang = str(input("Enter Name of Language:  "))
+            translator= Translator(to_lang=To_Lang)
+            translation = translator.translate(Text)
+            print(translation)
+            speak(translation)
+        except:
+            print("Connection Error!!!")
+            speak("Connection Error!!!")
         
     elif 'bedtime story' in query:
         story_dir = "C:\\Users\\Shantanu\\Desktop\\EDITH\\stories"
@@ -344,9 +389,13 @@ COMMANDS:                       | SYNTEX:
         exec(read_file);
         
     elif "news" in query:
-        stream = open("C:\\Users\\Shantanu\\Desktop\\EDITH\\news.py")
-        read_file = stream.read()
-        exec(read_file);
+        try:
+            stream = open("C:\\Users\\Shantanu\\Desktop\\EDITH\\news.py")
+            read_file = stream.read()
+            exec(read_file)
+        except:
+            print("Connection Error!!!")
+            speak("Connection Error!!!")
         
         
     elif "my ip" in query:
@@ -364,7 +413,12 @@ COMMANDS:                       | SYNTEX:
             speak("Download Failed!!")
     
     elif "whiteboard" in query:
-        webbrowser.open("https://www.twiddla.com/xdkrng")
+        try:
+            webbrowser.open("https://www.twiddla.com/xdkrng")
+            
+        except:
+            print("Connection Error!!!")
+            speak("Connection Error!!!")
     
     
     elif "mp3 downloader" in query:
