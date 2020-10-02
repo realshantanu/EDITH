@@ -5,3 +5,6 @@ The Files I Have Provided With It.
 
 Jarvis.py
 
+Please install Requirement.txt 
+without the required modulus it won't work
+just type>>>> pip install -r Requirements.txt
