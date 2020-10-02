@@ -212,8 +212,8 @@ while True:
     elif 'send mail' in query:
         try:
             mail_content = input("Enter The Message:  ")
-            sender_address = 'shantanurajmane21@gmail.com'
-            sender_pass = '9527226630'
+            sender_address = 'Your_Mail_Adderess'
+            sender_pass = 'Your_Mail_Adderess'
             receiver_address = input('Enter receviers mail Eg:receiver567@gmail.com:   ')
             #Setup the MIME
             message = MIMEMultipart()
