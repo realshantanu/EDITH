@@ -335,6 +335,7 @@ COMMANDS:                       | SYNTEX:
 [23] Youtube Video In Audio For.|[23] mp3 downloader
 [24]Open Whatsapp               |[24]open Whatsapp
 [25]Open Instagram              |[25]open insta
+[26]Battery Status              |[26]check battery status
         ''')
     
     elif "chat" in query:
