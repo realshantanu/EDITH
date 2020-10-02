@@ -92,6 +92,12 @@ while True:
         
     elif 'open youtube' in query:
         webbrowser.open("www.youtube.com")
+        
+    elif 'open whatsapp' in query:
+        webbrowser.open("https:\\web.whatsapp.com")
+        
+    elif 'open insta' in query:
+        webbrowser.open("https:\\www.instagram.com")
     
     elif 'open google' in query:
         webbrowser.open("www.google.com")
@@ -327,6 +333,8 @@ COMMANDS:                       | SYNTEX:
 [21] Youtube Video Downloader   |[21] download youtube video
 [22] WhiteBoard                 |[22] open whiteboard
 [23] Youtube Video In Audio For.|[23] mp3 downloader
+[24]Open Whatsapp               |[24]open Whatsapp
+[25]Open Instagram              |[25]open insta
         ''')
     
     elif "chat" in query:
@@ -364,11 +372,17 @@ COMMANDS:                       | SYNTEX:
             read_file = stream.read()
             exec(read_file);
             print("Download Success!")
+            speak("Download Success!")
         except:
             print("Download Failed!!")
             speak("Download Failed!!")
         
     
+    elif 'check battery status' in query:
+        stream = open("C:\\Users\\Shantanu\\Desktop\\EDITH\\power_status.py")
+        read_file = stream.read()
+        exec(read_file)
+        
     
     else:
         c = "No Command Assigned for",query
