@@ -8,3 +8,5 @@ Jarvis.py
 Please install Requirement.txt 
 without the required modulus it won't work
 just type>>>> pip install -r Requirements.txt
+
+https://docs.google.com/presentation/d/1fBCM1TSHy3EOrqW4QaC0x2YOMEsBAq6_RRWF13Ub2AM/edit?usp=sharing
